@@ -23,16 +23,17 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
+    - name: Get current year
+      id: get-year
+      run: echo "year=$(date +%Y)" >> $GITHUB_OUTPUT
       
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'npm'
-        
-    - name: Get current year
-      id: get-year
-      run: echo "year=$(date +%Y)" >> $GITHUB_OUTPUT
+        cache-dependency-path: ./${{ steps.get-year.outputs.year }}/package-lock.json
       
     - name: Install dependencies
       working-directory: ./${{ steps.get-year.outputs.year }}
