@@ -29,21 +29,18 @@ jobs:
       with:
         node-version: '20'
         cache: 'npm'
-        cache-dependency-path: ${{ github.event.repository.name }}/**/package.json
         
     - name: Get current year
       id: get-year
       run: echo "year=$(date +%Y)" >> $GITHUB_OUTPUT
       
     - name: Install dependencies
-      run: |
-        cd ${{ steps.get-year.outputs.year }}
-        npm ci
+      working-directory: ./${{ steps.get-year.outputs.year }}
+      run: npm ci
         
     - name: Build project
-      run: |
-        cd ${{ steps.get-year.outputs.year }}
-        npm run build
+      working-directory: ./${{ steps.get-year.outputs.year }}
+      run: npm run build
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
