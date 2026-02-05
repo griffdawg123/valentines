@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import danceGif from '/dance.gif'
+import heartPng from '/heart.png'
+import bouquetPng from '/bouquet.png'
 
 function App() {
   const [view, setView] = useState<'question' | 'success'>('question')
@@ -32,7 +35,7 @@ function App() {
         <div className="success-content">
           <h2>YAY! 🎉</h2>
           <img
-            src="/dance.gif"
+            src={danceGif}
             alt="Celebration"
             className="celebration-gif"
           />
@@ -46,12 +49,12 @@ function App() {
       <div className="question-content">
         <div className="images-row">
           <img
-            src="/heart.png"
+            src={heartPng}
             alt="Love Heart"
             className="heart-image"
           />
           <img
-            src="/bouquet.png"
+            src={bouquetPng}
             alt="Flowers"
             className="flower-image"
           />
