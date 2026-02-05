@@ -36,7 +36,7 @@ jobs:
       
     - name: Install dependencies
       working-directory: ./${{ steps.get-year.outputs.year }}
-      run: npm ci
+      run: npm install
         
     - name: Build project
       working-directory: ./${{ steps.get-year.outputs.year }}
