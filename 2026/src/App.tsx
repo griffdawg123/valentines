@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import danceGif from '/dance.gif'
-import heartPng from '/heart.png'
-import bouquetPng from '/bouquet.png'
+import danceGif from '../public/dance.gif'
+import heartPng from '../public/heart.png'
+import bouquetPng from '../public/bouquet.png'
 
 function App() {
   const [view, setView] = useState<'question' | 'success'>('question')
