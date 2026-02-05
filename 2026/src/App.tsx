@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import danceGif from '../public/dance.gif'
-import heartPng from '../public/heart.png'
-import bouquetPng from '../public/bouquet.png'
+
+const BASE_URL = import.meta.env.BASE_URL;
 
 function App() {
   const [view, setView] = useState<'question' | 'success'>('question')
@@ -35,7 +34,7 @@ function App() {
         <div className="success-content">
           <h2>YAY! 🎉</h2>
           <img
-            src={danceGif}
+            src={`${BASE_URL}dance.gif`}
             alt="Celebration"
             className="celebration-gif"
           />
@@ -49,12 +48,12 @@ function App() {
       <div className="question-content">
         <div className="images-row">
           <img
-            src={heartPng}
+            src={`${BASE_URL}heart.png`}
             alt="Love Heart"
             className="heart-image"
           />
           <img
-            src={bouquetPng}
+            src={`${BASE_URL}bouquet.png`}
             alt="Flowers"
             className="flower-image"
           />
